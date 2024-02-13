@@ -35,7 +35,16 @@ class ArtIllumina:
             "--in", infile,
             "--len", str(self.read_length),
             "--rcount", str(n_reads),
-            "--out", out_prefix 
+            "--out", out_prefix,
+
+            "--minQ", str(30),
+            "--maxQ", str(30),
+            # "--insRate", str(0),     # Set insert rate to 0
+	        # "--insRate2", str(0),    # Set insert rate to 0
+            # "--delRate", str(0),     # Set deletion rate to 0
+            # "--delRate2", str(0),    # Set deletion rate to 0
+            # "--errfree",
+
         ], capture_output=True)
 
         message_lines = op.stdout.decode("ASCII").split("\n")[-4:-2]
